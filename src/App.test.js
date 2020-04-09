@@ -1,7 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import App from "./App";
-import { exportAllDeclaration } from "@babel/types";
 
 test("renders App without crashing", () => {
   render(<App />);
@@ -30,9 +29,3 @@ test("renders Message", () => {
   expect(message).toBeInTheDocument();
 })
 
-test("click me button adds 1 to numClicks", () => {
-  const { getByText } = render(<App/>)
-  const numClickButton = getByText(/click me/i);
-  fireEvent.click(numClickButton)
-  expect(numClickButton.innerHTML).toBe("click me: 1")
-}) 
